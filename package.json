@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx puppeteer install && node index.js",
     "build": "echo 'No build step required'",
-    "postinstall": "puppeteer install"
+    "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/project/.puppeteer npx puppeteer install"
   },
   "keywords": [],
   "author": "",
