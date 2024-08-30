@@ -1,10 +1,7 @@
-const puppeteer = require('puppeteer-core');
+const { chromium } = require('playwright');
 
 async function scrapeAmazon(query, maxPages = 5) {
-    const browser = await puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'], 
-    });
+    const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
     const products = [];
 
@@ -43,7 +40,7 @@ async function scrapeAmazon(query, maxPages = 5) {
 }
 
 async function scrapeProductDescription(productUrl) {
-    const browser = await puppeteer.launch();
+    const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(productUrl, { waitUntil: 'networkidle2' });
 
