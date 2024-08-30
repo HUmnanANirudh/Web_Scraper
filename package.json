@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
-    "build": "echo 'No build step required'"
+    "start":"npx puppeteer install && node index.js",
+    "build": "echo 'No build step required'",
+    "postinstall": "puppeteer install"
   },
   "keywords": [],
   "author": "",
