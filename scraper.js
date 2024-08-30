@@ -1,7 +1,10 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 async function scrapeAmazon(query, maxPages = 5) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        executablePath: '/usr/bin/google-chrome-stable',
+        headless: true,
+    });
     const page = await browser.newPage();
     const products = [];
 
