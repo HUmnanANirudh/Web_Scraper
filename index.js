@@ -1,12 +1,11 @@
 const express = require('express');
-const { scrapeAmazon, scrapeProductDescription } = require('./scraper'); // Ensure this path is correct
+const { scrapeAmazon, scrapeProductDescription } = require('./scraper'); 
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-// Endpoint to fetch products
 app.get('/api/products', async (req, res) => {
     const query = req.query.q;
     const pages = parseInt(req.query.pages) || 1;
